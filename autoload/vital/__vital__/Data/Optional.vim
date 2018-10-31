@@ -127,6 +127,15 @@ function! s:flatten(o, ...) abort
   endif
 endfunction
 
+function! s:first(xs) abort
+    for x in a:xs
+      if s:exists(x)
+        return x
+      endif
+    endfor
+    return s:none()
+endfunction
+
 function! s:_echo(msg, hl) abort
   if empty(a:hl)
     echo a:msg
