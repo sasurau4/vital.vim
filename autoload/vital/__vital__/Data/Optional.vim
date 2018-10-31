@@ -136,6 +136,10 @@ function! s:first(xs) abort
     return s:none()
 endfunction
 
+function! s:last(xs) abort
+    return s:first(reverse(a:xs))
+endfunction
+
 function! s:_echo(msg, hl) abort
   if empty(a:hl)
     echo a:msg
