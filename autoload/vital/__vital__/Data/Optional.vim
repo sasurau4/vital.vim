@@ -137,7 +137,7 @@ function! s:first(xs) abort
 endfunction
 
 function! s:last(xs) abort
-    return s:first(reverse(a:xs))
+    return s:first(reverse(copy(a:xs)))
 endfunction
 
 function! s:_echo(msg, hl) abort
