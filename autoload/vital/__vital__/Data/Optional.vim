@@ -131,6 +131,10 @@ function! s:flatten(o, ...) abort
   endif
 endfunction
 
+function! s:optional(x, f, g) abort
+  return s:get_or(s:map(a:x, a:f), a:g)
+endfunction
+
 function! s:first(xs) abort
     for x in a:xs
       if s:exists(x)
