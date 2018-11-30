@@ -112,6 +112,10 @@ function! s:bind(f, ...) abort
   return call(a:f, map(copy(a:000), 'v:val[0]'))
 endfunction
 
+function! s:flat_map(f, x) abort
+  return s:bind(a:f, a:x)
+endfunction
+
 function! s:flatten(o, ...) abort
   if (a:0 > 0 && a:1 == 0)
         \ || !s:is_optional(a:o)

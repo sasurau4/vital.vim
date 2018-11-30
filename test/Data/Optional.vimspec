@@ -305,6 +305,25 @@ Describe Data.Optional
     End
   End
 
+  Describe .flat_map()
+    Before all
+      function! Pure(x) abort
+        let O = vital#vital#new().import('Data.Optional')
+        return O.some(a:x)
+      endfunction
+    End
+
+    After all
+      delfunction Pure
+    End
+
+    It is simular to .bind()
+      Assert Equals(
+        \ O.bind('Pure', O.some(10)),
+        \ O.some(10))
+    End
+  End
+
   Describe .flatten()
     It returns flattened optional value
       let o = O.none()
